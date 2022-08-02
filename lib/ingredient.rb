@@ -1,2 +1,4 @@
 class Ingredient
+
+
 end
