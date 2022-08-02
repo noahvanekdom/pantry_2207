@@ -1,11 +1,16 @@
 require './lib/ingredient'
 require './lib/recipe'
 require './lib/cook_book'
+require './lib/pantry'
 
 describe Recipe do
     let(:ingredient1) { Ingredient.new({name: "Cheese", unit: "C", calories: 100}) }
     let(:ingredient2) { Ingredient.new({name: "Macaroni", unit: "oz", calories: 30}) }
+    let(:ingredient3) { Ingredient.new({name: "Ground Beef", unit: "oz", calories: 100})}
+    let(:ingredient4) { Ingredient.new({name: "Bun", unit: "g", calories: 75})}
     let(:recipe1) { Recipe.new("Mac and Cheese") }
+    let(:recipe2) { Recipe.new("Cheese Burger")}
+
     it 'exists' do
         expect(recipe1).to be_instance_of Recipe
     end

@@ -3,15 +3,19 @@ class Recipe
 
     def initialize(name)
         @name = name
-        @ingredients_required = {}
+        @ingredients_required = Hash.new(0)
         @ingredients = []
     end
 
     def add_ingredient(ingredient, quantity)
-        ingredient_hash = {}
-        ingredient_hash[ingredient] = quantity
+        @ingredients_required[ingredient] += quantity
+        @ingredients << ingredient
+        @ingredients = @ingredients.uniq
+    end
 
-        @ingredients_required.merge!(ingredient_hash) { |ingredient, quantity1, quantity2 | quantity1 + quantity2 }
-        @ingredients = @ingredients_required.keys
+    def total_calories
+        @ingredients_required.reduce(0) do |total, (ingredient, quantity)|
+          total + (ingredient.calories * quantity)
+        end
     end
 end

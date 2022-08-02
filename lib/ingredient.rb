@@ -3,8 +3,17 @@ class Ingredient
 
     def initialize(details)
         @details = details
-        @name = details[:name]
-        @unit = details[:unit]
-        @calories = details[:calories]
+    end
+
+    def name
+        @details[:name]
+    end
+
+    def unit
+        @details[:unit]
+    end
+
+    def calories
+        @details[:calories]
     end
 end
