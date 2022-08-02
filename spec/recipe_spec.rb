@@ -15,7 +15,7 @@ describe Recipe do
     end
 
     it 'knows what ingredients are required' do
-        expect(recipe1.ingredients_required).to eq {}
+        expect(recipe1.ingredients_required).to eq({})
     end
 
     it 'can add ingredients' do
@@ -23,6 +23,7 @@ describe Recipe do
         recipe1.add_ingredient(ingredient1, 4)
         recipe1.add_ingredient(ingredient2, 8)
 
-        expect(recipe1.ingredients_required).to eq {ingredient1: 6, ingredient: 8}
-        expect(recipe1.ingredients).to eq {ingredient1, ingredient2}
+        expect(recipe1.ingredients_required).to eq({ingredient1 => 6, ingredient2 => 8})
+        expect(recipe1.ingredients).to eq([ingredient1, ingredient2])
     end
+end
